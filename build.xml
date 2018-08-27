@@ -2,7 +2,7 @@
 <project name="Ant-Test" default="main" basedir=".">
     <!-- Sets variables which can later be used. -->
     <!-- The value of a property is accessed via ${} -->
-    <property name="src.dir" location="src" />
+    <property name="src.dir" location="." />
     <property name="build.dir" location="bin" />
     <property name="dist.dir" location="dist" />
     <property name="docs.dir" location="docs" />
@@ -19,7 +19,7 @@
         <mkdir dir="${build.dir}" />
         <mkdir dir="${docs.dir}" />
         <mkdir dir="${dist.dir}" />
-    </target>
+	</target>
 
     <!-- Compiles the java code (including the usage of library for JUnit -->
     <target name="compile" depends="clean, makedir">
