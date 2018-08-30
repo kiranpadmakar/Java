@@ -5,7 +5,7 @@ pipeline {
 		jdk 'Java'
 	}
 	environment {
-		GH_ACCESS_KEY = credentials('GitHub_KP_Cred')
+		GH_ACCESS_KEY = credentials('516a1c16-d17c-4b5d-9373-b84fedd10445')
 	}
 	stages {
 		stage('Welcome'){
@@ -17,7 +17,7 @@ pipeline {
 			steps {
 				git (
 					branch: 'myJavaLocal',
-					credentialsId: 'GitHub_KP_Cred',
+					credentialsId: '516a1c16-d17c-4b5d-9373-b84fedd10445',
 					url: 'https://github.com/kiranpadmakar/Java.git'
 				)
 				withAnt {
