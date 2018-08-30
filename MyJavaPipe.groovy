@@ -16,8 +16,8 @@ pipeline {
 		stage('build'){
 			steps {
 				git {
-					branch: 'myJavaLocal'
-					credentialsId: 'GitHub_KP_Cred'
+					branch: 'myJavaLocal',
+					credentialsId: 'GitHub_KP_Cred',
 					url: 'https://github.com/kiranpadmakar/Java.git'
 				}
 				withAnt {
