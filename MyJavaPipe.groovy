@@ -20,9 +20,9 @@ pipeline {
 					credentialsId: '516a1c16-d17c-4b5d-9373-b84fedd10445',
 					url: 'https://github.com/kiranpadmakar/Java.git'
 				)
-				withAnt {
+				withAnt (
 					targets: 'main'
-				}
+				)
 			}
 		}
 	
