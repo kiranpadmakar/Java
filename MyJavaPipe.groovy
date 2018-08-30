@@ -21,7 +21,7 @@ pipeline {
 					url: 'https://github.com/kiranpadmakar/Java.git'
 				)
 				withAnt {
-					target 'main'
+					targets: 'main'
 				}
 			}
 		}
