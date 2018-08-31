@@ -1,12 +1,5 @@
 pipeline {
 	agent any
-	tools {
-		ant 'Ant Installation'
-		jdk 'Java'
-	}
-	environment {
-		GH_ACCESS_KEY = credentials('516a1c16-d17c-4b5d-9373-b84fedd10445')
-	}
 	stages {
 		stage('Welcome'){
 			steps {
