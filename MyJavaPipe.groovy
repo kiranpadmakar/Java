@@ -21,7 +21,7 @@ pipeline {
 					url: 'https://github.com/kiranpadmakar/Java.git'
 				)
 				withAnt(installation: 'Ant Installation', jdk: 'Java'){
-				bat 'ant build'
+				bat 'ant main'
 				}
 			}
 		}
