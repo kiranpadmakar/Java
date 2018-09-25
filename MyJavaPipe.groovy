@@ -10,10 +10,10 @@ pipeline {
 			steps {
 				git (
 					branch: 'myJavaLocal',
-					credentialsId: '516a1c16-d17c-4b5d-9373-b84fedd10445',
+					credentialsId: 'KiranPadmakar',
 					url: 'https://github.com/kiranpadmakar/Java.git'
 				)
-				withAnt(installation: 'Ant Installation', jdk: 'Java'){
+				withAnt(installation: 'ANT', jdk: 'JAVA'){
 				bat 'ant main'
 				}
 			}
