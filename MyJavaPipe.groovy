@@ -13,7 +13,7 @@ pipeline {
 					credentialsId: 'KiranPadmakar',
 					url: 'https://github.com/kiranpadmakar/Java.git'
 				)
-				withAnt(installation: 'ANT', jdk: 'JAVA'){
+				withAnt(installation: 'ANT', jdk: 'Java'){
 				bat 'ant main'
 				}
 			}
