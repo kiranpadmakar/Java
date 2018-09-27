@@ -4,8 +4,9 @@ pipeline {
 		stage('Welcome'){
 			steps {
 				echo "Hello World!!! Welcome to my Java Build"
-				echo "${JOB_NAME}_${BUILD_NUMBER}"
-				}
+				export bDir="${JOB_NAME}_${BUILD_NUMBER}"
+				bat 'mkdir $bDir'
+			      }
 		}
 		stage('build'){
 			steps {
