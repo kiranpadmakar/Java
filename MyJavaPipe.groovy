@@ -4,7 +4,7 @@ pipeline {
 		stage('Welcome'){
 			steps {
 				echo "Hello World!!! Welcome to my Java Build"
-				echo "$currentBuild"
+				echo "$JOB_NAME"
 				}
 		}
 		stage('build'){
