@@ -4,7 +4,7 @@ pipeline {
 		stage('Welcome'){
 			steps {
 				echo "Hello World!!! Welcome to my Java Build"
-				echo `basename "${JOB_NAME}_${BUILD_NUMBER}"`
+				echo "${JOB_NAME}_${BUILD_NUMBER}"
 				}
 		}
 		stage('build'){
