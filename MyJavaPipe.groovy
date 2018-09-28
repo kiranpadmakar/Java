@@ -4,10 +4,7 @@ pipeline {
 		stage('Welcome'){
 			steps {
 				echo "Hello World!!! Welcome to my Java Build"
-				powershell 'mkdir dist'
-				powershell 'cd dist'
-				powershell '$dates=GET-DATE -FORMAT "yyyyMMddHHmmss"'
-				powershell 'mkdir $dates'
+				powershell(returnStatus: true, script: 'dir_Build')
 			      }
 		}
 		stage('build'){
