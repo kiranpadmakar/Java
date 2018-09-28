@@ -20,6 +20,13 @@ pipeline {
 			}
 		}
 	
+		stage('Move'){
+			steps {
+				echo "Move the jar"
+				powershell(". '.\\mv_Build.ps1'")
+			      }
+		}
+
 	}
 
 }
