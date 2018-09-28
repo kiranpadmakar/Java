@@ -4,7 +4,7 @@ pipeline {
 		stage('Welcome'){
 			steps {
 				echo "Hello World!!! Welcome to my Java Build"
-				PowerShell(". '.\\dir_Build.ps1'")
+				powershell(". '.\\dir_Build.ps1'")
 			      }
 		}
 		stage('build'){
