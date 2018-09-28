@@ -4,7 +4,6 @@ pipeline {
 		stage('Welcome'){
 			steps {
 				echo "Hello World!!! Welcome to my Java Build"
-				bat 'mkdir $bDir'
 			      }
 		}
 		stage('build'){
