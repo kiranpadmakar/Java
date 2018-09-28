@@ -1,4 +1,4 @@
 cd dist
-mv *.jar *
+mv *.jar 2*
 ls
 
