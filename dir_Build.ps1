@@ -1,4 +1,4 @@
 cd dist
-rm *
+rm -force -recurse *
 $dates=GET-DATE -FORMAT "yyyyMMddHHmmss"
 mkdir $dates
