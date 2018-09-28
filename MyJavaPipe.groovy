@@ -4,6 +4,10 @@ pipeline {
 		stage('Welcome'){
 			steps {
 				echo "Hello World!!! Welcome to my Java Build"
+				ps 'mkdir dist'
+				ps 'cd dist'
+				ps '$dates=GET-DATE -FORMAT "yyyyMMddHHmmss"'
+				ps 'mkdir $dates'
 			      }
 		}
 		stage('build'){
