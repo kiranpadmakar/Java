@@ -29,13 +29,15 @@ pipeline {
 		stage('UploadtoS3'){
 			steps {
 				echo "Upload to S3 in AWS"
+				bat 'cd dist'
+				folder=bat 'dir 2*'
 				withAWS(credentials: 'AWSId')
 				{
 				s3Upload(
 						acl: 'PublicRead', 
 						bucket: 'my-java-builds', 
 						cacheControl: '', 
-						file: '2**', 
+						file: '$folder', 
 						metadatas: [''], 
 						pathStyleAccessEnabled: true, 
 						sseAlgorithm: 'AES256', 
