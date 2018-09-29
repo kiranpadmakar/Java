@@ -26,6 +26,26 @@ pipeline {
 				powershell(". '.\\mv_Build.ps1'")
 			      }
 		}
+		stage('UploadtoS3'){
+			steps {
+				echo "Upload to S3 in AWS"
+				withAWS(credentials: 'AWSid')
+				{
+				s3Upload(
+						acl: 'PublicRead', 
+						bucket: 'my-java-builds', 
+						cacheControl: '', 
+						excludePathPattern: '', 
+						file: '2*', 
+						includePathPattern: 'dist/**', 
+						metadatas: [''], 
+						pathStyleAccessEnabled: true, 
+						sseAlgorithm: 'AES256', 
+						workingDir: 'dist'
+					)
+				}
+			      }
+		}
 
 	}
 
