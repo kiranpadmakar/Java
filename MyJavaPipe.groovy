@@ -36,7 +36,6 @@ pipeline {
 						bucket: 'my-java-builds', 
 						cacheControl: '', 
 						excludePathPattern: '', 
-						file: '', 
 						includePathPattern: 'dist/**', 
 						metadatas: [''], 
 						pathStyleAccessEnabled: true, 
