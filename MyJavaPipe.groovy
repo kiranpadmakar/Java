@@ -35,7 +35,7 @@ pipeline {
 						acl: 'PublicRead', 
 						bucket: 'my-java-builds', 
 						cacheControl: '', 
-						file: '2*', 
+						file: '2**', 
 						metadatas: [''], 
 						pathStyleAccessEnabled: true, 
 						sseAlgorithm: 'AES256', 
