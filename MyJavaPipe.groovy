@@ -29,7 +29,7 @@ pipeline {
 		stage('UploadtoS3'){
 			steps {
 				echo "Upload to S3 in AWS"
-				withAWS(credentials: 'AWSid')
+				withAWS(credentials: 'AWSId')
 				{
 				s3Upload(
 						acl: 'PublicRead', 
