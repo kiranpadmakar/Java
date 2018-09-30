@@ -30,7 +30,7 @@ pipeline {
 			steps {
 				echo "Upload to S3 in AWS"
 				bat 'cd dist'
-				folder=bat 'dir 2*'
+				$folder=bat 'dir 2*'
 				withAWS(credentials: 'AWSId')
 				{
 				s3Upload(
