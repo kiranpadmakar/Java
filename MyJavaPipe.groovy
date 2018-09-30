@@ -36,11 +36,11 @@ pipeline {
 						acl: 'PublicRead', 
 						bucket: 'my-java-builds', 
 						cacheControl: '', 
-						file: '*', 
+						file: '', 
 						metadatas: [''], 
 						pathStyleAccessEnabled: true, 
 						sseAlgorithm: 'AES256', 
-						workingDir: 'dist/*/'
+						workingDir: 'dist/'
 					)
 				}
 			      }
