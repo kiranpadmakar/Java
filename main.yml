@@ -7,5 +7,5 @@
     - name: Cloud Formation template using Jinja2
     - template:
           src: /playbooks/awsStack.yml.j2
-          dest: /home/Ansible/Documeents/MyAws_CF.template
+          dest: /home/Ansible/Documents/MyAws_CF.template
           mode: 0644
