@@ -1,10 +1,17 @@
 ---
 - hosts: all
-  remote_user: root
   vars_files: /vars/variables.yml
   
   tasks:
+
+    - name: Directory creation on EC2
+    
+    - file:
+          path: /home/Ansible/Documents/
+          state: directory
+
     - name: Cloud Formation template using Jinja2
+    
     - template:
           src: /playbooks/awsStack.yml.j2
           dest: /home/Ansible/Documents/MyAws_CF.template
