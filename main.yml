@@ -7,12 +7,12 @@
     - name: Directory creation on EC2
     
     - file:
-          path: /home/Ansible/Documents/
+          path: /home/ec2-user/Documents/
           state: directory
 
     - name: Cloud Formation template using Jinja2
     
     - template:
           src: /playbooks/awsStack.yml.j2
-          dest: /home/Ansible/Documents/MyAws_CF.template
+          dest: /home/ec2-user/Documents/MyAws_CF.template
           mode: 0644
