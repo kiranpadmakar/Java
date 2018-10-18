@@ -16,3 +16,4 @@
           src: /playbooks/awsStack.yml.j2
           dest: /home/ec2-user/Documents/MyAws_CF.template
           mode: 0644
+          
