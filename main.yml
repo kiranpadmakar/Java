@@ -1,18 +1,15 @@
 ---
-- hosts: all
-  vars_files: /vars/variables.yml
+    hosts: all
+    vars_files: /vars/variables.yml
   
-  tasks:
-
+    tasks:
     - name: Directory creation on EC2
-    
-    - file:
+      file:
           path: /home/ec2-user/Documents/
           state: directory
 
     - name: Cloud Formation template using Jinja2
-    
-    - template:
+      template:
           src: /playbooks/awsStack.yml.j2
           dest: /home/ec2-user/Documents/MyAws_CF.template
           mode: 0644
