@@ -17,12 +17,12 @@ MyAWSmap:
   map_count: 1
 
 Region:
-  1:
+  0:
     reg: ap-southeast-2
     
 
 RegMap:
-  1:
+  0:
     value: ami-7a85a01a
   
 InstType:
