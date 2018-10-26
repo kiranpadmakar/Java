@@ -32,6 +32,7 @@ pipeline {
 
 				withAWS(credentials: 'AWSId',region:'ap-southeast-2')
 				{
+				 Date datetime = new Date('yyyy-MM-dd-HH-mm-ss')
 				s3Upload(
 						acl: 'PublicRead', 
 						bucket: 'my-java-builds', 
