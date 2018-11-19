@@ -1,0 +1,104 @@
+sg_flag:  true
+iam_flag: true
+eni_flag: false
+asg_flag: true
+rds_flag: true
+
+Subnets:
+  sb1: subnet-e77128be
+  sb2: subnet-0e847c69
+  sb3: subnet-13856d5a
+
+iamRoleDef: 'eBPM-nonprod-app'
+
+dbKeyAlias: 'cmk-eBPM-rds-dev'
+dbSize: 300
+DBuserName: ebpmdbadmin
+DBpassword: eBPMccTelstra972
+
+
+ENIs:
+  user:
+    eni_count_az: 3
+
+  agent:
+    eni_count_az: 3
+
+  uni:
+    eni_count_az: 1
+
+User:
+  ELB:
+    maxsize: 1
+    minsize: 0
+    listenPorts:
+      lp1:
+        lbport: 443
+        dest_port: 8443
+        protocol: TCP
+  CW:
+    threshold: 70
+  ASG:
+    volumesize: 50
+    instancetype: r3.large
+
+Agent:
+  ELB:
+    maxsize: 1 
+    minsize: 0
+    type: classic
+    listenPorts:
+      lp1:
+        lbport: 443
+        dest_port: 8443
+        protocol: TCP
+  CW:
+    threshold: 70
+  ASG:
+    volumesize: 50
+    instancetype: m4.xlarge
+
+Uni:
+  ASG:
+    volumesize: 50
+    instancetype: m4.xlarge
+  ELB:
+    AZ: ap-southeast-2c
+    subnetId: subnet-e77128be
+    maxsize: 1
+    minsize: 0
+    type: classic
+    listenPorts:
+      lp1:
+        lbport: 443
+        dest_port: 8443
+        protocol: TCP
+      lp2:
+        lbport: 22
+        dest_port: 22
+        protocol: TCP
+      lp3:
+         lbport: 111
+        dest_port: 111
+        protocol: TCP
+      lp4:
+        lbport: 2050
+        dest_port: 2050
+        protocol: TCP
+      lp5:
+        lbport: 2051
+        dest_port: 2051
+        protocol: TCP
+      lp6:
+        lbport: 2052
+        dest_port: 2052
+        protocol: TCP
+      lp7:
+        lbport: 2049
+        dest_port: 2049
+        protocol: TCP
+
+user_flag: true
+agent_flag: true
+uni_flag: true
+

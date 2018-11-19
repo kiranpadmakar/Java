@@ -1,0 +1,29 @@
+subnetId: subnet-e77128be
+
+keyPairName: MyAWSKey
+
+MySGid: MyDMZ
+
+ApplicationName: KiranJava
+
+EnvironmentName: Prod
+
+AWSprefix: AWSKirSydney 
+
+MyAWSasg:
+  inst_count_asg: 3
+
+MyAWSmap:
+  map_count: 1
+
+Region:
+  0:
+    reg: ap-southeast-2
+    
+
+RegMap:
+  0:
+    value: ami-7a85a01a
+  
+InstType:
+  type: t2.micro

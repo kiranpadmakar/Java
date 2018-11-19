@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: Auto Scaling Group EC2 
+
+Mappings:
+  AmazonLinuxAMIMap:
+	{% for j in range(MyAWSmap.map_count) %}
+    # Region {{ j }}
+    {{ Region[j].reg }}:
+      AMI: {{ RegMap[j].value }}
+	{% endfor %}
+
+Resources:
+{% for i in range(MyAWSasg.inst_count_asg) %}
+	{{ ApplicationName }}{{ EnvironmentName }}ECTWO_{{ i }}:
+    Type: "AWS::EC2::Instance"
+    Properties: 
+      Description: EC2 in my AWS Instance No {{ i }}
+      InstanceType: {{ InstType.type }}
+	  SecurityGroups: {{ MySGid }}  
+      SubnetId: {{ subnetId }}
+	  KeyName: {{ keyPairName }}
+	  ImageId: 
+	    !FindInMap
+			- "AmazonLinuxAMIMap"
+			- !Ref: "AWS::Region"
+			- "AMI"
+      Tags:
+        - Key: Name
+          Value: {{ AWSprefix }}-{{ ApplicationName }}{{ EnvironmentName }}{{ i }}
+        - Key: ApplicationName
+          Value: {{ ApplicationName }}
+        - Key: EnvironmentName
+          Value: {{ EnvironmentName }}
+        - Key: Instance Number
+          Value: {{ i }}
+{% endfor %}
+
+

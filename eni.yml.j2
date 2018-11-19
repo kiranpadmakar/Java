@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: Fixed ENIs for eBPM asg in Prod environment
+
+Parameters:
+  ApplicationSGid:
+    Description: security group id of eBPM application
+    Type: String
+
+Resources:
+{% for instance in ENIs %}
+{% set vars={'count': 1} %}
+{% for i in range(ENIs[instance].eni_count_az) %}
+  
+  {{ ApplicationName }}{{ EnvironmentName }}{{ instance }}ENI{{ vars.count }}:
+    Type: "AWS::EC2::NetworkInterface"
+    Properties: 
+      Description: ENI for ebpm
+      GroupSet:
+        - Ref: ApplicationSGid  
+      SubnetId: {{ ENIs[instance].subnetId }}
+      PrivateIpAddress: {{ ENIs[instance].ips[i] }}
+      Tags:
+        - Key: Name
+          Value: {{ AWSprefix }}-{{ ApplicationName }}{{ EnvironmentName }}{{ instance }}-nic{{ vars.count }}
+        - Key: ApplicationName
+          Value: {{ ApplicationName }}
+        - Key: EnvironmentName
+          Value: {{ EnvironmentName }}
+        - Key: Type
+          Value: {{ instance }}
+{% if vars.update({'count': vars['count'] + 1 }) %}{% endif %}
+{%- endfor -%}
+{%- endfor -%}
+
+
+Outputs:
+{% for cnt in range (ENIs['user'].eni_count_az) %}
+
+  IPeniUser{{ cnt+1 }}:
+    Value: !GetAtt {{ ApplicationName }}{{ EnvironmentName }}userENI{{ cnt+1 }}.PrimaryPrivateIpAddress
+{%- endfor -%}
+
+{% for cnt in range (ENIs['agent'].eni_count_az) %}
+
+  IPeniAgent{{ cnt+1 }}:
+    Value: !GetAtt {{ ApplicationName }}{{ EnvironmentName }}agentENI{{ cnt+1 }}.PrimaryPrivateIpAddress
+{%- endfor -%}
+
+{% for cnt in range (ENIs['uni'].eni_count_az) %}
+
+  IPeniUNI{{ cnt+1 }}:
+    Value: !GetAtt {{ ApplicationName }}{{ EnvironmentName }}uniENI{{ cnt+1 }}.PrimaryPrivateIpAddress
+{%- endfor -%}
+
